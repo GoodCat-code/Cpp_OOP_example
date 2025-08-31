@@ -1,0 +1,15 @@
+# Visual Studio
+*.suo
+*.user
+*.vcxproj*
+*.vcxproj.filters
+Debug/
+Release/
+x64/
+build/
+*.obj
+*.exe
+*.pdb
+CMakeFiles/
+CMakeCache.txt
+*.log
