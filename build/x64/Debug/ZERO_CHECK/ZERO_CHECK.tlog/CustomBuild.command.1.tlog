@@ -1,0 +1,10 @@
+^E:\FORK_REPOSITORY\CPP_OOP_EXAMPLE\BUILD\CMAKEFILES\2847C5B43DCB90BE511E2717B9E2EE59\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/Fork_Repository/Cpp_OOP_example -BE:/Fork_Repository/Cpp_OOP_example/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/Fork_Repository/Cpp_OOP_example/build/Cpp_OOP_example.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
