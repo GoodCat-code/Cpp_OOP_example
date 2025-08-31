@@ -1,15 +1,18 @@
-# Visual Studio
-*.suo
-*.user
-*.vcxproj*
-*.vcxproj.filters
+# Build folders
+build/
 Debug/
 Release/
-x64/
-build/
-*.obj
-*.exe
-*.pdb
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.VC.db
+
+# CMake
 CMakeFiles/
 CMakeCache.txt
-*.log
+*.vcxproj*
+*.pdb
+*.exe
+*.obj
