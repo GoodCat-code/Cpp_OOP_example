@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "AbstrEmp.h"
 #include "Service.h"
 #include <fstream>
@@ -8,10 +8,10 @@ using namespace std;
 
 int main()
 {
-	fstream fiout("output.txt", ios::in | ios::out | ios::ate);		// и чтение, и запись
-	vector<unique_ptr<abstr_emp>> allArr;		// массив указателей на виртуальный базовый класс
+	fstream fiout("output.txt", ios::in | ios::out | ios::ate);		// Рё С‡С‚РµРЅРёРµ, Рё Р·Р°РїРёСЃСЊ
+	vector<unique_ptr<abstr_emp>> allArr;		// РјР°СЃСЃРёРІ СѓРєР°Р·Р°С‚РµР»РµР№ РЅР° РІРёСЂС‚СѓР°Р»СЊРЅС‹Р№ Р±Р°Р·РѕРІС‹Р№ РєР»Р°СЃСЃ
 
-	if (fiout.tellg() == 0)		// только первое открытие
+	if (fiout.tellg() == 0)		// С‚РѕР»СЊРєРѕ РїРµСЂРІРѕРµ РѕС‚РєСЂС‹С‚РёРµ
 	{
 		fiout.seekg(0);
 		employee em("Trip", "Harris", "Thumper");
@@ -23,23 +23,23 @@ int main()
 		highfink hf(ma, "Curly Kew");
 		allArr.push_back(make_unique<highfink>(hf));
 
-		printArray(allArr, cout);		// вывести массив на экран
+		printArray(allArr, cout);		// РІС‹РІРµСЃС‚Рё РјР°СЃСЃРёРІ РЅР° СЌРєСЂР°РЅ
 
-		for (auto &ar : allArr)		// вывести данные в файл
+		for (auto &ar : allArr)		// РІС‹РІРµСЃС‚Рё РґР°РЅРЅС‹Рµ РІ С„Р°Р№Р»
 			saveToFile(*ar, fiout);
 
 		fiout.close();
 		return 1;
 	}
 
-	// если файл не пустой
-	loadFromFileToArray(allArr, fiout);		// выгрузить из файла в массив 
-	printArray(allArr, cout);		// вывести массив на экран
+	// РµСЃР»Рё С„Р°Р№Р» РЅРµ РїСѓСЃС‚РѕР№
+	loadFromFileToArray(allArr, fiout);		// РІС‹РіСЂСѓР·РёС‚СЊ РёР· С„Р°Р№Р»Р° РІ РјР°СЃСЃРёРІ 
+	printArray(allArr, cout);		// РІС‹РІРµСЃС‚Рё РјР°СЃСЃРёРІ РЅР° СЌРєСЂР°РЅ
 
 	cout << "0 for employee\n1 for manager\n2 for fink\n3 for highfink\nq for quit\nEnter worker: ";
 	int n;
 
-	// выбор типа и ввод данных работника с занесением в файл и массив
+	// РІС‹Р±РѕСЂ С‚РёРїР° Рё РІРІРѕРґ РґР°РЅРЅС‹С… СЂР°Р±РѕС‚РЅРёРєР° СЃ Р·Р°РЅРµСЃРµРЅРёРµРј РІ С„Р°Р№Р» Рё РјР°СЃСЃРёРІ
 	while (cin >> n)
 	{
 		cin.get();

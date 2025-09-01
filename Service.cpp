@@ -1,4 +1,4 @@
-#include "Service.h"
+п»ї#include "Service.h"
 #include "AbstrEmp.h"
 
 void printArray(const std::vector<std::unique_ptr<abstr_emp>>& arr, std::ostream& os)
@@ -12,8 +12,8 @@ void printArray(const std::vector<std::unique_ptr<abstr_emp>>& arr, std::ostream
 
 void saveToFile(abstr_emp& ae, std::fstream& fout)
 {
-	fout.clear();		// очистка флага конца файла
-	fout.seekp(0, std::ios::end);		// установка чтения до конца файла
+	fout.clear();		// РѕС‡РёСЃС‚РєР° С„Р»Р°РіР° РєРѕРЅС†Р° С„Р°Р№Р»Р°
+	fout.seekp(0, std::ios::end);		// СѓСЃС‚Р°РЅРѕРІРєР° С‡С‚РµРЅРёСЏ РґРѕ РєРѕРЅС†Р° С„Р°Р№Р»Р°
 	enum classID { Employee, Manager, Fink, Highfink };
 	int id = 0;
 	if (employee* em = dynamic_cast<employee*>(&ae))
@@ -31,27 +31,27 @@ void saveToFile(abstr_emp& ae, std::fstream& fout)
 	fout << std::endl;
 }
 
-// TODO: заменить на getline() и vector, добавить enum для замены магических
+// TODO: Р·Р°РјРµРЅРёС‚СЊ РЅР° getline() Рё vector, РґРѕР±Р°РІРёС‚СЊ enum РґР»СЏ Р·Р°РјРµРЅС‹ РјР°РіРёС‡РµСЃРєРёС…
 void loadFromFileToArray(std::vector<std::unique_ptr<abstr_emp>>& arr, std::fstream& fin)
 {
 	fin.seekg(0);
 	std::string str, fname, lname, job, reportsto;
 	char ch, classtype;
 	int inchargeof, counter = 0;
-	while (fin.get(ch))		// чтение до конца файла по словам
+	while (fin.get(ch))		// С‡С‚РµРЅРёРµ РґРѕ РєРѕРЅС†Р° С„Р°Р№Р»Р° РїРѕ СЃР»РѕРІР°Рј
 	{
-		if (counter == 0)		// считать тип работника
+		if (counter == 0)		// СЃС‡РёС‚Р°С‚СЊ С‚РёРї СЂР°Р±РѕС‚РЅРёРєР°
 		{
 			classtype = ch;
 			counter++;
-			fin.get(ch);		// удалить пустой символ
+			fin.get(ch);		// СѓРґР°Р»РёС‚СЊ РїСѓСЃС‚РѕР№ СЃРёРјРІРѕР»
 			continue;
 		}
 
-		if (ch != '\t' && ch != '\n')		// считать слово
+		if (ch != '\t' && ch != '\n')		// СЃС‡РёС‚Р°С‚СЊ СЃР»РѕРІРѕ
 			str += ch;
 		else
-		{		// запись полей типа из файла
+		{		// Р·Р°РїРёСЃСЊ РїРѕР»РµР№ С‚РёРїР° РёР· С„Р°Р№Р»Р°
 			counter++;
 			switch (counter)
 			{
@@ -84,8 +84,8 @@ void loadFromFileToArray(std::vector<std::unique_ptr<abstr_emp>>& arr, std::fstr
 			}
 			str = "";
 		}
-		if (ch == '\n' || fin.peek() == EOF)		// вывести данные в массив на основе типа
-		{														// TODO (?): вынести в отдельную функцию
+		if (ch == '\n' || fin.peek() == EOF)		// РІС‹РІРµСЃС‚Рё РґР°РЅРЅС‹Рµ РІ РјР°СЃСЃРёРІ РЅР° РѕСЃРЅРѕРІРµ С‚РёРїР°
+		{														// TODO (?): РІС‹РЅРµСЃС‚Рё РІ РѕС‚РґРµР»СЊРЅСѓСЋ С„СѓРЅРєС†РёСЋ
 			switch (classtype)
 			{
 			case '0': arr.push_back(std::make_unique<employee>(fname, lname, job)); break;

@@ -1,11 +1,11 @@
-#pragma once
+п»ї#pragma once
 #include <vector>
 #include <memory>
 #include <iostream>
 #include <fstream>
 class abstr_emp;
 
-void printArray(const std::vector<std::unique_ptr<abstr_emp>>& arr, std::ostream& os);		// вывести массив на экран
-void saveToFile(abstr_emp& ae, std::fstream& fout);		// вывести данные в файл
-void loadFromFileToArray(std::vector<std::unique_ptr<abstr_emp>>& arr, std::fstream& fin);		// выгрузить из файла в массив
-std::unique_ptr<abstr_emp> createEmployeeFromInput(int n);		// создать работника на основе ввода выбора
+void printArray(const std::vector<std::unique_ptr<abstr_emp>>& arr, std::ostream& os);		// РІС‹РІРµСЃС‚Рё РјР°СЃСЃРёРІ РЅР° СЌРєСЂР°РЅ
+void saveToFile(abstr_emp& ae, std::fstream& fout);		// РІС‹РІРµСЃС‚Рё РґР°РЅРЅС‹Рµ РІ С„Р°Р№Р»
+void loadFromFileToArray(std::vector<std::unique_ptr<abstr_emp>>& arr, std::fstream& fin);		// РІС‹РіСЂСѓР·РёС‚СЊ РёР· С„Р°Р№Р»Р° РІ РјР°СЃСЃРёРІ
+std::unique_ptr<abstr_emp> createEmployeeFromInput(int n);		// СЃРѕР·РґР°С‚СЊ СЂР°Р±РѕС‚РЅРёРєР° РЅР° РѕСЃРЅРѕРІРµ РІРІРѕРґР° РІС‹Р±РѕСЂР°

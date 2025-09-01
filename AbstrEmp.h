@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -6,17 +6,17 @@
 class abstr_emp
 {
 private:
-	std::string fname;			// имя abstr_emp
-	std::string lname;			// фамилия abstr_emp
-	std::string job;				// работа abstr_emp
+	std::string fname;			// РёРјСЏ abstr_emp
+	std::string lname;			// С„Р°РјРёР»РёСЏ abstr_emp
+	std::string job;				// СЂР°Р±РѕС‚Р° abstr_emp
 public:
 	abstr_emp() {};
 	abstr_emp(const std::string& fn, const std::string& ln, const std::string& j) : fname(fn), lname(ln), job(j) {};
-	virtual void SetAll();				// запрашивает значения у пользователя
-	virtual void ShowAll(std::ostream& os) const;		// выводит все данные с именами
-	virtual void WriteAll(std::fstream& os) const;		// выводит все данные в файл
-	friend std::ostream& operator<< (std::ostream& os, const abstr_emp& е);			// Выводит только имя и фамилию
-	virtual ~abstr_emp() = 0;		// виртуальный
+	virtual void SetAll();				// Р·Р°РїСЂР°С€РёРІР°РµС‚ Р·РЅР°С‡РµРЅРёСЏ Сѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	virtual void ShowAll(std::ostream& os) const;		// РІС‹РІРѕРґРёС‚ РІСЃРµ РґР°РЅРЅС‹Рµ СЃ РёРјРµРЅР°РјРё
+	virtual void WriteAll(std::fstream& os) const;		// РІС‹РІРѕРґРёС‚ РІСЃРµ РґР°РЅРЅС‹Рµ РІ С„Р°Р№Р»
+	friend std::ostream& operator<< (std::ostream& os, const abstr_emp& Рµ);			// Р’С‹РІРѕРґРёС‚ С‚РѕР»СЊРєРѕ РёРјСЏ Рё С„Р°РјРёР»РёСЋ
+	virtual ~abstr_emp() = 0;		// РІРёСЂС‚СѓР°Р»СЊРЅС‹Р№
 };
 
 class employee : public abstr_emp
@@ -29,10 +29,10 @@ public:
 class manager : virtual public abstr_emp
 {
 private:
-	int inchargeof;			// количество подчиненных abstr_emp
+	int inchargeof;			// РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРґС‡РёРЅРµРЅРЅС‹С… abstr_emp
 protected:
-	int InChargeOf() const { return inchargeof; };			// вывод
-	int& InChargeOf() { return inchargeof; };					// вывод
+	int InChargeOf() const { return inchargeof; };			// РІС‹РІРѕРґ
+	int& InChargeOf() { return inchargeof; };					// РІС‹РІРѕРґ
 public:
 	manager() : abstr_emp(), inchargeof(0) {};
 	manager(const std::string& fn, const std::string& ln, const std::string& j, int ico = 0) : abstr_emp(fn, ln, j), inchargeof(ico) {};
@@ -46,7 +46,7 @@ public:
 class fink : virtual public abstr_emp
 {
 private:
-	std::string reportsto;		// кому выводить отчеты
+	std::string reportsto;		// РєРѕРјСѓ РІС‹РІРѕРґРёС‚СЊ РѕС‚С‡РµС‚С‹
 protected:
 	const std::string ReportsTo() const { return reportsto; };
 	std::string& ReportsTo() { return reportsto; }
@@ -61,7 +61,7 @@ public:
 	void WriteAll(std::fstream& os) const override;
 };
 
-class highfink : public manager, public fink		// надзор за управляющими
+class highfink : public manager, public fink		// РЅР°РґР·РѕСЂ Р·Р° СѓРїСЂР°РІР»СЏСЋС‰РёРјРё
 {
 public:
 	highfink() : abstr_emp(), manager(), fink() {};
